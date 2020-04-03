@@ -45,17 +45,23 @@ BLYNK_WRITE(V2)
 
 BLYNK_WRITE(V3)
 {
-    if (param.asInt() == 0)
-    {digitalWrite(led, 1);
-      if (lock3 == false){LINE.notify("ครบเวลากําหนดปั๊มนํ้าทํางาน");
-          lock3 = true;}}
-      else {
+    if (param.asInt() == 1){ // ถ้ามีการกดปุ่ม 
+
+      digitalWrite(led, 1);
+
+      if (lock3 == false){
+        
+        LINE.notify("ครบเวลากําหนดปั๊มนํ้าทํางาน");
+          lock3 = true;
+
+          }
+
+        }else {
+
         lock3 = false;
-      }
-  
-    if (param.asInt() == 1) 
-    {digitalWrite(led, 0);}
-   
+        digitalWrite(led, 0);
+        
+      }   
   
 }
     
